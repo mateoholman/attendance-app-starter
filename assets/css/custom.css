@@ -1,3 +1,18 @@
-h1, p {
+body {
+  background-color: #79CDCD;
+}
+
+h1 {
+  font-family: 'Lobster', cursive;
+}
+
+h1, p, form, table, th {
   text-align: center;
+}
+
+hr {
+  color: black;
+  background-color: black;
+  width: 25%;
+  height: 1px;
 }

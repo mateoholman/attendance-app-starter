@@ -40,6 +40,9 @@ app.set('view engine', 'ejs');
 // Add middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// Set our static directory
+app.use(express.static(__dirname + '/assets'));
+
 app.get('/', function(req, res, next) {
   res.render('index.ejs', {
     courseInfo
