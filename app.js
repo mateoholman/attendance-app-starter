@@ -11,16 +11,26 @@ const bodyParser = require('body-parser');
 // Initialize our app
 const app = express();
 
-
-const courseInfo = {
+// Setup a course object
+let courseInfo = {
   courseTitle: 'Express 101',
   courseMessage: 'Please check-in using the form below.',
   courseStudents: [
-    {name: Matt,
+    {name: 'Matt',
     attendance: 4},
-    {name: Joe,
+    {name: 'Joe',
     attendance: 2}
   ]
+}
+
+// Create a function to find out if a student is already registered
+// for the current course.
+function findStudentIndex(studentName) {
+  for (var i = 0; i < courseInfo.courseStudents.length; i++) {
+    if (courseInfo.courseStudents[i].name === studentName){
+      return i;
+    }
+  }
 }
 
 // Set our views directory
@@ -37,10 +47,11 @@ app.get('/', function(req, res, next) {
 });
 
 app.post('/', function(req, res, next) {
-  console.log(req.body.name);
 
-  if (courseInfo.courseStudents.name.indexOf(req.body.name) > -1) {
-    courseInfo.courseStudents[indexOf(req.body.name)].attendance++;
+  let studentIndex = findStudentIndex(req.body.name);
+
+  if (studentIndex !== undefined) {
+    courseInfo.courseStudents[studentIndex].attendance++;
   }
   else {
     let newStudent = {
@@ -49,6 +60,7 @@ app.post('/', function(req, res, next) {
     };
     courseInfo.courseStudents.push(newStudent);
   }
+
   res.redirect('/');
 });
 

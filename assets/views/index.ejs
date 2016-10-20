@@ -9,7 +9,7 @@
   <!-- Latest compiled and minified Bootstrap CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="./assets/css/custom.css" type="text/css">
+  <!-- <link rel="stylesheet" href="../../assets/css/custom.css" type="text/css"> -->
 </head>
 
 <body>
@@ -31,10 +31,10 @@
     <th>Name</th>
     <th>Check-ins</th>
   </tr>
-  <% courseInfo.courseStudents.forEach(function(name, attendance) { %>
+  <% courseInfo.courseStudents.forEach(function(student) { %>
     <tr>
-      <td><%= name %></td>
-      <td><%= attendance %></td>
+      <td><%= student.name %></td>
+      <td><%= student.attendance %></td>
     </tr>
   <% }) %>
 
